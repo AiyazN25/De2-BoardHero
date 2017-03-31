@@ -1,0 +1,15 @@
+module LightAdder(L1, L2, L3, select, out);
+	input [15:0] L1, L2, L3;
+	input [1:0] select;
+	output [15:0] out;
+	
+	always @(*)
+	begin
+		case(select[1:0])
+			2'b00: out = L1;
+			2'b01: out = L1 + L2;
+			2'b11: out = L1 + L2 + L3;
+			default: out = L1;
+		endcase
+	end
+endmodule 
